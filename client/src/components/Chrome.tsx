@@ -112,7 +112,7 @@ export function Navbar() {
                 <span className="h-px bg-current w-6" />
                 <span className="h-px bg-current transition-all group-hover:w-4 w-2" />
               </span>
-              <span className="hidden md:block text-[11px] uppercase tracking-mega">Menu</span>
+              <span className="hidden md:block text-[11px] uppercase tracking-mega">{locale === 'ar' ? 'القائمة' : 'Menu'}</span>
             </button>
           </div>
           <Link to="/" className="absolute left-1/2 -translate-x-1/2 font-display italic text-xl md:text-[28px] tracking-wide text-cream-50">
