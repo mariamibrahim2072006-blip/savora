@@ -35,14 +35,16 @@ export default function Menu() {
   };
 
   useEffect(() => { api.get('/categories').then((r) => setCats(r.data.categories)).catch(() => {}); }, []);
+  const mcats = cats.filter((c: any) => c.slug !== 'cold-drinks').map((c: any) => c.slug === 'hot-drinks' ? { ...c, id: 'drinks', slug: 'drinks', name_en: 'Drinks', name_ar: 'المشروبات' } : c);
+  const effCat = cat || (search ? '' : (mcats[0]?.slug || ''));
 
   useEffect(() => {
     setLoading(true);
-    api.get('/products', { params: { category: cat || undefined, search: search || undefined, min: min || undefined, max: max || undefined, diet: diet || undefined, spicy: spicy || undefined, popular: popular || undefined, isnew: isnew || undefined, sort: sort || undefined } })
-      .then((r) => setProducts(r.data.products))
+    Promise.all((effCat === 'drinks' ? ['hot-drinks', 'cold-drinks'] : [effCat]).map((slug) => api.get('/products', { params: { category: slug || undefined, search: search || undefined, min: min || undefined, max: max || undefined, diet: diet || undefined, spicy: spicy || undefined, popular: popular || undefined, isnew: isnew || undefined, sort: sort || undefined } })))
+      .then((rs) => setProducts(rs.flatMap((r) => r.data.products)))
       .catch(() => setProducts([]))
       .finally(() => setLoading(false));
-  }, [cat, search, min, max, diet, spicy, popular, isnew, sort]);
+  }, [effCat, search, min, max, diet, spicy, popular, isnew, sort]);
 
   const activeFilters = [diet, spicy, popular, isnew, min, max].filter(Boolean).length;
 
@@ -115,17 +117,15 @@ export default function Menu() {
           {/* category rail */}
           <aside className="hidden lg:block w-56 shrink-0">
             <div className="sticky top-28 flex flex-col gap-1">
-              <CatLink active={!cat} onClick={() => setParam('cat', '')} label={t('menu.all')} count={undefined} />
-              {cats.map((c) => (
-                <CatLink key={c.id} active={cat === c.slug} onClick={() => setParam('cat', c.slug)} label={loc === 'ar' ? c.name_ar : c.name_en} />
+              {mcats.map((c: any) => (
+                <CatLink key={c.id} active={effCat === c.slug} onClick={() => setParam('cat', c.slug)} label={loc === 'ar' ? c.name_ar : c.name_en} />
               ))}
             </div>
           </aside>
           {/* mobile categories */}
           <div className="lg:hidden fixed bottom-0 inset-x-0 z-[800] bg-ink-950/95 backdrop-blur border-t border-cream-50/10 overflow-x-auto">
             <div className="flex gap-1 px-3 py-2 w-max">
-              <MobileCat active={!cat} onClick={() => setParam('cat', '')} label={t('menu.all')} />
-              {cats.map((c) => <MobileCat key={c.id} active={cat === c.slug} onClick={() => setParam('cat', c.slug)} label={loc === 'ar' ? c.name_ar : c.name_en} />)}
+              {mcats.map((c: any) => <MobileCat key={c.id} active={effCat === c.slug} onClick={() => setParam('cat', c.slug)} label={loc === 'ar' ? c.name_ar : c.name_en} />)}
             </div>
           </div>
 
