@@ -113,12 +113,12 @@ export function Navbar() {
               <span className="hidden md:block text-[11px] uppercase tracking-mega">Menu</span>
             </button>
           </div>
-          <Link to="/" className="absolute left-1/2 -translate-x-1/2 font-display italic text-2xl md:text-[28px] tracking-wide text-cream-50">
+          <Link to="/" className="absolute left-1/2 -translate-x-1/2 font-display italic text-xl md:text-[28px] tracking-wide text-cream-50">
             SAVORA<span className="text-gold-400 not-italic">.</span>
           </Link>
           <div className="flex items-center gap-4 md:gap-6">
             <button onClick={() => setLocale(locale === 'en' ? 'ar' : 'en')} className="flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] text-cream-50/70 hover:text-gold-400 transition-colors">
-              <Globe size={14} /> {t('common.langName')}
+              <Globe size={14} /> <span className="hidden sm:inline">{t('common.langName')}</span>
             </button>
             <Link to="/track" className="hidden md:block"><Search size={18} className="text-cream-50/70 hover:text-gold-400 transition-colors" /></Link>
             <Link to="/account/favorites" aria-label={t('nav.wishlist')}><Heart size={18} className="text-cream-50/70 hover:text-gold-400 transition-colors" /></Link>
@@ -138,7 +138,7 @@ export function Navbar() {
             ) : (
               <Link to="/auth"><User size={18} className="text-cream-50/70 hover:text-gold-400 transition-colors" /></Link>
             )}
-            <Link to="/menu" className="hidden lg:inline-flex btn-lux !px-6 !py-2.5"><span>{t('nav.orderNow')}</span></Link>
+            <Link to="/menu" className="!hidden lg:!inline-flex btn-lux !px-6 !py-2.5"><span>{t('nav.orderNow')}</span></Link>
           </div>
         </div>
       </header>
