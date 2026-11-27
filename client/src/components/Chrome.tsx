@@ -91,17 +91,19 @@ export function Navbar() {
   const count = useCart((s) => s.items.reduce((a, i) => a + i.quantity, 0));
   const { user, logout } = useAuth();
   const [scrolled, setScrolled] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 40);
+    let last = window.scrollY;
+    const on = () => { const y = window.scrollY; setScrolled(y > 40); if (y > last + 4 && y > 80) setHideNav(true); else if (y < last - 4 || y <= 80) setHideNav(false); last = y; };
     window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
   }, []);
 
   return (
     <>
-      <header className={`fixed top-0 inset-x-0 z-[900] transition-all duration-500 ${scrolled ? 'bg-ink-950/85 backdrop-blur-md border-b border-cream-50/5' : ''}`}>
+      <header className={`fixed top-0 inset-x-0 z-[900] transition-all duration-300 ${hideNav ? '-translate-y-full' : ''} ${scrolled ? 'bg-ink-950/85 backdrop-blur-md border-b border-cream-50/5' : ''}`}>
         <div className="max-w-[1500px] mx-auto px-5 md:px-10 h-[72px] flex items-center justify-between">
           <div className="flex items-center gap-6">
             <button aria-label="Open menu" onClick={() => setNavOpen(true)} className="group flex items-center gap-3 text-cream-50/80 hover:text-cream-50">
