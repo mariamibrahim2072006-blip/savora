@@ -36,9 +36,9 @@ export default function About() {
           <p className="eyebrow">{t('sections.story')}</p>
           {story.map((p, i) => <p key={i} className={`text-cream-50/65 leading-loose mt-5 ${i === 2 ? 'font-display italic text-xl text-gold-300/90' : ''}`}>{p}</p>)}
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="relative">
-          <img src="/images/site/story-interior.webp" alt="" className="w-full aspect-[4/3] object-cover img-dark" />
-          <img src="/images/site/story-chef.webp" alt="" className="absolute -bottom-8 -end-4 md:-end-8 w-40 md:w-56 aspect-[3/4] object-cover border-4 border-ink-950 img-dark" />
+        <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="grid grid-cols-2 gap-4 md:gap-6">
+          <img src="/images/site/story-interior.webp" alt="" className="w-full aspect-[3/4] object-cover img-dark" />
+          <img src="/images/site/story-chef.webp" alt="" className="w-full aspect-[3/4] object-cover img-dark" />
         </motion.div>
       </div>
 
