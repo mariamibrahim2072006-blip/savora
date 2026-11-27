@@ -110,7 +110,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {cats.slice(0, 8).map((c, i) => (
             <Link key={c.id} to={`/menu?cat=${c.slug}`}
-              className={`group relative overflow-hidden card-lux ${i % 5 === 0 ? 'row-span-2 aspect-[3/4] md:aspect-auto' : 'aspect-[4/3]'}`}>
+              className="group relative overflow-hidden card-lux aspect-[4/3]">
               <DishImage src={c.image || '/images/site/gallery-1.webp'} alt={c.name_en}
                 className="absolute inset-0 w-full h-full object-cover opacity-70 transition-all duration-[1.4s] ease-luxury group-hover:scale-110 group-hover:opacity-90" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/20 to-transparent" />
@@ -184,11 +184,11 @@ export default function Home() {
       {/* ============ STORY ============ */}
       <section className="relative py-24 md:py-40 overflow-hidden">
         <div className="max-w-[1500px] mx-auto px-5 md:px-10 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div className="relative">
-            <div className="relative overflow-hidden aspect-[4/5]">
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            <div className="relative overflow-hidden aspect-[3/4]">
               <DishImage src="/images/site/story-interior.webp" alt="SAVORA dining room" className="w-full h-full object-cover" />
             </div>
-            <div className="absolute -bottom-10 -end-4 md:-end-10 w-1/2 overflow-hidden aspect-square border-8 border-ink-950">
+            <div className="relative overflow-hidden aspect-[3/4]">
               <DishImage src="/images/site/story-chef.webp" alt="Plating at the pass" className="w-full h-full object-cover" />
             </div>
           </div>
