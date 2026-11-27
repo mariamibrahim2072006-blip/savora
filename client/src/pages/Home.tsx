@@ -64,8 +64,8 @@ export default function Home() {
           <Embers className="absolute inset-0 z-[4] opacity-70 pointer-events-none" />
         </div>
         <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full pt-24">
-          <p className="eyebrow mb-6">{t('sections.featured')} — Cairo</p>
-          <h1 ref={titleRef} className="headline text-[13vw] md:text-[8.5vw] text-cream-50">
+          <p className="eyebrow mb-6">{t('sections.featured')} — {loc === 'ar' ? 'القاهرة' : 'Cairo'}</p>
+          <h1 ref={titleRef} className={`headline text-[13vw] md:text-[8.5vw] text-cream-50 ${loc === 'ar' ? '!text-[10vw] md:!text-[6.2vw]' : ''}`}>
             <span className="block">{chars(t('hero.headline1'))}</span>
             <span className="block italic text-gold-300">{chars(t('hero.headline2'))}</span>
           </h1>
