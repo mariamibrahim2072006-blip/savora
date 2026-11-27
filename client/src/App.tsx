@@ -15,6 +15,7 @@ const About = lazy(() => import('./pages/About'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Locations = lazy(() => import('./pages/Locations'));
+const HeroPreview = lazy(() => import('./pages/HeroPreview'));
 const Faq = lazy(() => import('./pages/Faq'));
 const Policy = lazy(() => import('./pages/Policy'));
 const Auth = lazy(() => import('./pages/Auth'));
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/locations" element={<Locations />} />
+            <Route path="/hero-preview" element={<HeroPreview />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/policy/:kind" element={<Policy />} />
             <Route path="/auth" element={<Auth />} />
