@@ -74,7 +74,7 @@ export default function Home() {
         </div>
         {!isTouch() && (
           <div className="hero-dish hidden lg:block absolute -bottom-10 end-[6%] w-[30vw] max-w-[480px] z-[5] animate-floaty">
-            <img src="/images/site/dish-3d.webp" alt="SAVORA signature burger" className="w-full drop-shadow-[0_60px_80px_rgba(0,0,0,0.8)]" style={{ mixBlendMode: 'screen' }} />
+            <img src="/images/site/1-dish-3d.webp" alt="SAVORA signature burger" className="w-full drop-shadow-[0_40px_50px_rgba(0,0,0,0.6)]" />
           </div>
         )}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream-50/40">
