@@ -47,8 +47,10 @@ export default function Home() {
     return () => ctx.revert();
   }, [loc]);
 
-  const chars = (s: string) => s.split('').map((c, i) => (
-    <span key={i} className="inline-block overflow-hidden align-bottom"><span className="hero-char inline-block">{c === ' ' ? ' ' : c}</span></span>
+  const chars = (s: string) => s.split(' ').map((w, wi, arr) => (
+    <span key={wi} className="inline-block whitespace-nowrap">{w.split('').map((c, i) => (
+      <span key={i} className="inline-block overflow-hidden align-bottom"><span className="hero-char inline-block">{c}</span></span>
+    ))}{wi < arr.length - 1 ? ' ' : null}</span>
   ));
 
   return (
