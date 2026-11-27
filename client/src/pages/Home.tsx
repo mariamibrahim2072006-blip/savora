@@ -47,7 +47,8 @@ export default function Home() {
     return () => ctx.revert();
   }, [loc]);
 
-  const chars = (s: string) => s.split(' ').map((w, wi, arr) => (
+  const mcats = cats.filter((c) => c.slug !== 'cold-drinks').map((c) => c.slug === 'hot-drinks' ? { ...c, id: 'drinks', slug: 'drinks', name_en: 'Drinks', name_ar: 'المشروبات' } : c);
+  const chars = (s: string) => loc === 'ar' ? (<span className="hero-char inline-block">{s}</span>) : s.split(' ').map((w, wi, arr) => (
     <span key={wi} className="inline-block whitespace-nowrap me-[0.25em]">{w.split('').map((c, i) => (
       <span key={i} className="inline-block overflow-hidden align-bottom"><span className="hero-char inline-block">{c}</span></span>
     ))}</span>
@@ -107,8 +108,8 @@ export default function Home() {
           <h2 className="headline text-4xl md:text-6xl reveal-up">{t('sections.categoriesSub')}</h2>
           <Link to="/menu" className="hidden md:inline-block link-underline text-[11px] uppercase tracking-mega text-gold-400">{t('common.seeAll')}</Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {cats.slice(0, 8).map((c, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+          {mcats.map((c, i) => (
             <Link key={c.id} to={`/menu?cat=${c.slug}`}
               className="group relative overflow-hidden card-lux aspect-[4/3]">
               <DishImage src={c.image || '/images/site/gallery-1.webp'} alt={c.name_en}
