@@ -61,7 +61,7 @@ export default function Locations() {
                 ))}
               </div>
             </div>
-            <a href={gmaps} target="_blank" rel="noreferrer" className="btn-gold justify-center mt-2">
+            <a href={gmaps} target="_blank" rel="noreferrer" className="btn-lux justify-center mt-2">
               <span className="flex items-center gap-2"><Navigation size={15} />{ar ? 'افتح في الخرائط' : 'Open in Maps'}</span>
             </a>
           </motion.div>
