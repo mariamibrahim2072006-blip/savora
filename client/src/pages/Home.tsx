@@ -48,9 +48,9 @@ export default function Home() {
   }, [loc]);
 
   const chars = (s: string) => s.split(' ').map((w, wi, arr) => (
-    <span key={wi} className="inline-block whitespace-nowrap">{w.split('').map((c, i) => (
+    <span key={wi} className="inline-block whitespace-nowrap me-[0.25em]">{w.split('').map((c, i) => (
       <span key={i} className="inline-block overflow-hidden align-bottom"><span className="hero-char inline-block">{c}</span></span>
-    ))}{wi < arr.length - 1 ? ' ' : null}</span>
+    ))}</span>
   ));
 
   return (
