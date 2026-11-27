@@ -95,7 +95,7 @@ export default function Checkout() {
         api.post('/addresses', { label: city.trim() || gov, governorate: gov, city: city.trim(), area: area.trim() || null, street: street.trim(), building: building.trim() || null, apartment: apartment.trim() || null, instructions: addrInstr.trim() || null }).catch(() => {});
       }
       clear();
-      nav('/confirmation', { state: { order: data.order, items: data.items } });
+      nav(`/order/${data.order.order_number}`, { state: { order: data.order, items: data.items } });
     } catch (e: any) {
       setServerErr(e?.response?.data?.error || t('common.error'));
       window.scrollTo({ top: 0, behavior: 'smooth' });
