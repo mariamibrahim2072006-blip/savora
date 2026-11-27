@@ -22,7 +22,8 @@ body {
 [lang='ar'] .font-body { font-family: 'IBM Plex Sans Arabic', 'Jost', sans-serif; }
 
 .eyebrow { @apply text-[11px] uppercase tracking-mega text-gold-400 font-medium; }
-[lang='ar'] .eyebrow { letter-spacing: 0.12em; }
+[lang='ar'] .eyebrow { letter-spacing: 0; }
+[lang='ar'] *, [lang='ar'] *::before, [lang='ar'] *::after { letter-spacing: normal !important; }
 
 .headline { @apply font-display font-medium leading-[0.95] tracking-tight; }
 
