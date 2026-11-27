@@ -1,0 +1,1 @@
+{"functions":[{"bundler":"esbuild","buildData":{"runtimeAPIVersion":1},"mainFile":"/home/sandbox/savora/netlify/functions/api.ts","name":"api","priority":10,"runtimeVersion":"nodejs22.x","path":"/home/sandbox/savora/.netlify/functions/api.zip","runtime":"js"}],"system":{"arch":"x64","platform":"linux"},"timestamp":1795745456675,"version":1}
