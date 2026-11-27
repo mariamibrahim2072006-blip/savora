@@ -307,8 +307,8 @@ export function Footer() {
           </ul>
           <h4 className="eyebrow mt-8 mb-5">{t('footer.hoursT')}</h4>
           <ul className="flex flex-col gap-2.5 text-sm text-cream-50/60">
-            <li>{isEn ? 'Saturday – Thursday · 10:00 – 00:00' : 'السبت – الخميس · ١٠:٠٠ – ٠٠:٠٠'}</li>
-            <li>{isEn ? 'Friday · 13:00 – 01:00' : 'الجمعة · ١٣:٠٠ – ٠١:٠٠'}</li>
+            <li>{isEn ? 'Saturday – Thursday · 10:00 – 00:00' : <>السبت – الخميس · <span dir="ltr">10:00 – 00:00</span></>}</li>
+            <li>{isEn ? 'Friday · 13:00 – 01:00' : <>الجمعة · <span dir="ltr">13:00 – 01:00</span></>}</li>
           </ul>
         </div>
         <div>
