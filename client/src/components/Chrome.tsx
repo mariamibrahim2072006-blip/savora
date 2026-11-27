@@ -274,7 +274,8 @@ export function CartDrawer() {
 
 /* ================= FOOTER ================= */
 export function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language !== 'ar';
   const year = new Date().getFullYear();
   const links: [string, string][] = [
     ['nav.home', '/'], ['nav.menu', '/menu'], ['nav.reservations', '/reservations'], ['nav.about', '/about'],
@@ -300,14 +301,14 @@ export function Footer() {
         <div>
           <h4 className="eyebrow mb-5">{t('footer.contactT')}</h4>
           <ul className="flex flex-col gap-2.5 text-sm text-cream-50/60">
-            <li>12 Nile Corniche, Garden City, Cairo</li>
+            <li>{isEn ? '12 Nile Corniche, Garden City, Cairo' : '١٢ كورنيش النيل، جاردن سيتي، القاهرة'}</li>
             <li dir="ltr" className="text-start">+20 155 555 0110</li>
             <li>hello@savora.example</li>
           </ul>
           <h4 className="eyebrow mt-8 mb-5">{t('footer.hoursT')}</h4>
           <ul className="flex flex-col gap-2.5 text-sm text-cream-50/60">
-            <li>{t('pages.hoursT') === 'Opening Hours' ? 'Sat – Thu · 10:00 – 00:00' : 'السبت – الخميس · ١٠:٠٠ – ٠٠:٠٠'}</li>
-            <li>{t('pages.hoursT') === 'Opening Hours' ? 'Friday · 13:00 – 01:00' : 'الجمعة · ١٣:٠٠ – ٠١:٠٠'}</li>
+            <li>{isEn ? 'Saturday – Thursday · 10:00 – 00:00' : 'السبت – الخميس · ١٠:٠٠ – ٠٠:٠٠'}</li>
+            <li>{isEn ? 'Friday · 13:00 – 01:00' : 'الجمعة · ١٣:٠٠ – ٠١:٠٠'}</li>
           </ul>
         </div>
         <div>
